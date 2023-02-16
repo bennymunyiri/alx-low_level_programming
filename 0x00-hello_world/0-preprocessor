@@ -1,2 +1,2 @@
 #!/bin/bash
-c_file="Cfile"
+export Cfile= 0-main.C
