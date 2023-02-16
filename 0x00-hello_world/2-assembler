@@ -1,0 +1,2 @@
+#!/bin/bash
+gcc -S"$C_FILE" -o "{$O_FILE%.c}.s"
