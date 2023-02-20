@@ -1,5 +1,5 @@
 #include <stdio.h>
-/*
+/**
  * main - Entry point
  * Description: print all alphabets in lowercase and in uppercase
  * Return: always 0(success)
@@ -12,10 +12,12 @@ int main(void)
 	while (n <= 90)
 	{
 		putchar(n);
+		n++;
 	}
 	while (m <= 122)
 	{
 		putchar(m);
+		m++;
 	}
 	putchar('\n');
 
