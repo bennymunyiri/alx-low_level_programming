@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -C "$C_FILE" -O "{C_ILE%.C}.O"
+gcc -c $CFILE -o ${CFILE%.c}.o
