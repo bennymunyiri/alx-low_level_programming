@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -S "$C_FILE" -o "${C_FILE%.c}.s"
+gcc -Wall -Werror -Wextra -pedantic -S $CFILE -o "${CFILE%.c}.s"
