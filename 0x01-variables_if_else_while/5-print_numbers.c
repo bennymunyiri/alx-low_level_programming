@@ -1,8 +1,8 @@
 #include <stdio.h>
 /**
  * main - Entry point
- * Description: Of base 10
- * Return: always '0' if succesful
+ * Description: Of base ten
+ * Return: always zero if succesful
  */
 int main(void)
 {
