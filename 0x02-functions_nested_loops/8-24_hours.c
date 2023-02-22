@@ -1,6 +1,8 @@
 #include "main.h"
 /**
+ * main: Entry point
  * jack_bauer - prints every minute of the day of Jack Bauer
+ * Return : always
  */
 void jack_bauer(void)
 {
