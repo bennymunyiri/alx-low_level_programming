@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * main - Entry point 
+ * main - Entry point
  * Description: printing small letters
  * Return: Always return zero
  */
@@ -10,8 +10,8 @@ void print_alphabet(void)
 
 	while (n <= 122)
 	{
-		putchar(n);
+		_putchar(n);
 		n++;
 	}
-	putchar('\n');
+	_putchar('\n');
 }
