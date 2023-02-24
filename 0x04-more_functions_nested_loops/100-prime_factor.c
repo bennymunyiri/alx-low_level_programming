@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <unistd.h>
 /**
  * main - Entry point
  * Description: finding the largest prime number
@@ -8,6 +8,7 @@ int main(void)
 {
     unsigned long int n = 612852475143;
     unsigned long int i = 2;
+    char c;
 
     while (i <= n)
     {
@@ -16,12 +17,14 @@ int main(void)
             n /= i;
             if (n == 1)
             {
-                putchar(i + '0');
-                putchar('\n');
+                c = i + '0';
+                write(STDOUT_FILENO, &c, 1);
+                write(STDOUT_FILENO, "\n", 1);
                 break;
             }
-            putchar(i + '0');
-            putchar('*');
+            c = i + '0';
+            write(STDOUT_FILENO, &c, 1);
+            write(STDOUT_FILENO, "*", 1);
             i = 1;
         }
         i++;
