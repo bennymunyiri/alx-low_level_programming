@@ -1,27 +1,34 @@
-#include <unistd.h>
+#include <stdio.h>
+#include "main.h"
 /**
  * print_number - Prints an integer
+ *
  * @n: The integer to print
+ *
  * Return: void
  */
 void print_number(int n)
 {
-    unsigned int num;
+    int divisor = 1;
 
+    /* Handle negative numbers */
     if (n < 0)
     {
-        write(STDOUT_FILENO, "-", 1);
-        num = -n;
-    }
-    else
-    {
-        num = n;
+        putchar('-');
+        n = -n;
     }
 
-    if (num / 10)
+    /* Find the divisor needed to print the most significant digit first */
+    while (n / divisor > 9)
     {
-        print_number(num / 10);
+        divisor *= 10;
     }
-    char c = (num % 10) + '0';
-    write(STDOUT_FILENO, &c, 1);
+
+    /* Print each digit in turn */
+    while (divisor > 0)
+    {
+        putchar('0' + n / divisor);
+        n %= divisor;
+        divisor /= 10;
+    }
 }
