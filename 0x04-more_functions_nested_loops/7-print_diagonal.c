@@ -1,15 +1,18 @@
 #include "main.h"
+#include <stdio.h>
 /**
- * print_diagonal - Printing in a diagnol
- * @n:diagnols number
- * Description: Printing a diagnol fixture
- * return: Return void
+ * print_diagonal - Printing in a diagonal
+ * @n: diagonal number
+ *
+ * Description: Printing a diagonal fixture
+ *
+ * Return: Return void
  */
 void print_diagonal(int n)
 {
 	if (n <= 0)
 	{
-		_putchar('\n');
+		putchar('\n');
 	}
 	else
 	{
@@ -19,10 +22,10 @@ void print_diagonal(int n)
 		{
 			for (j = 0; j < i; j++)
 			{
-				_putchar(' ');
+				putchar(' ');
 			}
-			_putchar('\\');
-			_putchar('\n');
+			putchar('\\');
+			putchar('\n');
 		}
 	}
 }
