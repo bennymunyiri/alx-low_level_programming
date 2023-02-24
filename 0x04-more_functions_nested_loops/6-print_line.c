@@ -5,7 +5,7 @@
  * Description: Printing a line of any length using '_'
  * Return: void
  */
-void print_line(int n);
+void print_line(int n)
 {
 	if (n <= 0);
 	{
