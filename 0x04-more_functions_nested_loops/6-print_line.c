@@ -1,16 +1,17 @@
-#include "main.h"
 #include <stdio.h>
 /**
- * print_line - printing  a line
+ * print_line - prints a line of underscores
  * @n: Length of the line
- * Description: Printing a line of any length using '_'
+ *
+ * Description: Prints a line of underscores of length n to the standard output.
+ *
  * Return: void
  */
 void print_line(int n)
 {
     if (n <= 0)
     {
-        _putchar('\n');
+        putchar('\n');
     }
     else
     {
@@ -18,8 +19,8 @@ void print_line(int n)
 
         for (i = 0; i < n; i++)
         {
-            _putchar('_');
+            putchar('_');
         }
-        _putchar('\n');
+        putchar('\n');
     }
 }
