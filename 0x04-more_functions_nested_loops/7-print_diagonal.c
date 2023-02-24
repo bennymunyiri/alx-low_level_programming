@@ -1,9 +1,11 @@
 #include "main.h"
 /**
- * print_diagonal - Printing in a diagnol
- * @n:diagnols number
- * Description: Printing a diagnol fixture
- * return: Return void
+ * print_diagonal - Printing in a diagonal
+ * @n: diagonal number
+ *
+ * Description: Printing a diagonal fixture
+ *
+ * Return: Return void
  */
 void print_diagonal(int n)
 {
