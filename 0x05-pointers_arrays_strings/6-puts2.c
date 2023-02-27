@@ -1,17 +1,17 @@
 #include "main.h"
+#include <stdio.h>
 #include <string.h>
 /**
- * rev_string - Reverses a string
- * @s: The string to be reversed
- * Return: always zero
+ * puts2 - prints every other character of a string
+ * @str: pointer to the string
  */
 void puts2(char *str)
 {
     int i;
 
-    for (i = 0; str[i] != '\0'; i += 2)
+    for (i = 0; i < strlen(str); i += 2)
     {
-        _putchar(str[i]);
+        putchar(str[i]);
     }
-    _putchar('\n');
+    putchar('\n');
 }
