@@ -5,16 +5,13 @@
  * @s: The string to be reversed
  * Return: always zero
  */
-void rev_string(char *s)
+void puts2(char *str)
 {
-	int len = strlen(s);
-	int i;
-	char temp;
+    int i;
 
-	for (i = 0; i < len / 2; i++)
-	{
-		temp = s[i];
-		s[i] = s[len - 1 - i];
-		s[len - 1 - i] = temp;
-	}
+    for (i = 0; str[i] != '\0'; i += 2)
+    {
+        _putchar(str[i]);
+    }
+    _putchar('\n');
 }
