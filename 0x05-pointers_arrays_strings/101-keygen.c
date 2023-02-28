@@ -5,16 +5,18 @@
 #define PASSWORD_LEN 61
 #define CHARSET "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 
-int main(void)
-{
-    srand(time(NULL));
+int main(void) {
+    char password[PASSWORD_LEN + 1];
+    int i;
 
-    char password[PASSWORD_LEN + 1] = {0};
-    for (int i = 0; i < PASSWORD_LEN; i++)
-    {
-        int index = rand() % (sizeof(CHARSET) - 1);
-	password[i] = CHARSET[index];
+    srand(time(NULL)); // seed the random number generator
+
+    for (i = 0; i < PASSWORD_LEN; i++) {
+        int index = rand() % (sizeof(CHARSET) - 1); // get a random index into the CHARSET
+        password[i] = CHARSET[index];
     }
+
+    password[i] = '\0'; // add null terminator to end of string
 
     printf("%s\n", password);
 
