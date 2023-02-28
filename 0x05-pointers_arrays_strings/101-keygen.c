@@ -9,14 +9,14 @@ int main(void) {
     char password[PASSWORD_LEN + 1];
     int i;
 
-    srand(time(NULL)); // seed the random number generator
+    srand(time(NULL));
 
     for (i = 0; i < PASSWORD_LEN; i++) {
-        int index = rand() % (sizeof(CHARSET) - 1); // get a random index into the CHARSET
+        int index = rand() % (sizeof(CHARSET) - 1);
         password[i] = CHARSET[index];
     }
 
-    password[i] = '\0'; // add null terminator to end of string
+    password[i] = '\0';
 
     printf("%s\n", password);
 
