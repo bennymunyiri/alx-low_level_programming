@@ -5,13 +5,15 @@
 #define PASSWORD_LEN 61
 #define CHARSET "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
 
-int main(void) {
+int main(void)
+{
     char password[PASSWORD_LEN + 1];
     int i;
 
     srand(time(NULL));
 
-    for (i = 0; i < PASSWORD_LEN; i++) {
+    for (i = 0; i < PASSWORD_LEN; i++)
+    {
         int index = rand() % (sizeof(CHARSET) - 1);
         password[i] = CHARSET[index];
     }
