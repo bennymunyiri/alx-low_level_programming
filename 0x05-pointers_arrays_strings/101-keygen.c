@@ -7,14 +7,18 @@
 
 int main(void)
 {
+    char password[PASSWORD_LEN + 1];
+    int i;
+
     srand(time(NULL));
 
-    char password[PASSWORD_LEN + 1] = {0};
-    for (int i = 0; i < PASSWORD_LEN; i++)
+    for (i = 0; i < PASSWORD_LEN; i++)
     {
         int index = rand() % (sizeof(CHARSET) - 1);
-	password[i] = CHARSET[index];
+        password[i] = CHARSET[index];
     }
+
+    password[i] = '\0';
 
     printf("%s\n", password);
 
