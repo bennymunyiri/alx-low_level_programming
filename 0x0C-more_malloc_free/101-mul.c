@@ -1,33 +1,30 @@
+#include "main.h"
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
-
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+#include <unistd.h>
+/**
+ * array_range - creates an array of integers
+ * @min: the minimum integer value to be included in the array
+ * @max: the maximum integer value to be included in the arra
+ * Return: On success, a pointer to the newly created array. On failure, NULL.
+ */
+int *array_range(int min, int max)
 {
-    void *new_ptr;
+    int *arr;
+    int size, i;
 
-    if (new_size == 0)
-    {
-        free(ptr);
-        return NULL;
-    }
-
-    if (ptr == NULL)
-    {
-        return malloc(new_size);
-    }
-
-    if (new_size == old_size)
-    {
-        return ptr;
-    }
-
-    new_ptr = malloc(new_size);
-
-    if (new_ptr != NULL)
-    {
-        memcpy(new_ptr, ptr, old_size < new_size ? old_size : new_size);
-        free(ptr);
-    }
-
-    return new_ptr;
+    /* check for invalid input */
+    if (min > max)
+        return (NULL);
+    /* calculate the size of the array */
+    size = max - min + 1;
+    /* allocate memory for the array */
+    arr = malloc(sizeof(int) * size);
+    if (arr == NULL)
+        return (NULL);
+    /* fill the array with integers */
+    for (i = 0; i < size; i++)
+        arr[i] = min++;
+    return (arr);
 }
