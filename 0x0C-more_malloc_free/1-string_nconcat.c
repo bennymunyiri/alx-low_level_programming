@@ -1,21 +1,24 @@
-#include "main.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
-#include <unistd.h>
 #include <string.h>
+#include <sys/types.h>
+#include <unistd.h>
 /**
- * malloc_checked - allocates memory using malloc
- * @b: size of the memory to be allocated
- * Return: pointer
+ * malloc_checked - Allocates memory using malloc.
+ * @b: The number of bytes to allocate
+ * Return: A pointer to the allocated memory.
+ * If malloc fails, the malloc_checked function causes normal process
+ * termination with a status value of 98.
  */
 void *malloc_checked(unsigned int b)
 {
-  void *ptr = malloc(b * sizeof(int));
+    void *ptr = malloc(b);
 
-  if (ptr == NULL)
-  {
-    exit(98);
-  }
-  return (ptr);
+    if (ptr == NULL)
+    {
+        fprintf(stderr, "malloc failed: %s\n", strerror(errno));
+        _exit(98);
+    }
+    return (ptr);
 }
