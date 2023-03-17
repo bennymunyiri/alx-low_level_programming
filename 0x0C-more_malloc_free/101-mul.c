@@ -1,90 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 /**
- * _isdigit - checks if a string is a digit
- * @s: string to check
- *
- * Return: 1 if s is a digit, 0 otherwise
+ * _realloc - Reallocates a memory block using malloc and free.
+ * @ptr: Pointer to the memory previously allocated with a call to malloc().
+ * @old_size: Size, in bytes, of the allocated space for ptr.
+ * @new_size: New size, in bytes, of the new memory block.
+ * Return: Pointer to the reallocated memory block.
  */
-int _isdigit(char *s)
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-    while (*s)
-    {
-        if (*s < '0' || *s > '9')
-            return (0);
-        s++;
-    }
-    return (1);
-}
+    char *new_ptr, *old_ptr;
+    unsigned int i;
 
-/**
- * _strlen - gets the length of a string
- * @s: string to check
- *
- * Return: length of s
- */
-int _strlen(char *s)
-{
-    int len = 0;
-
-    while (*s)
+    if (new_size == old_size)
+        return (ptr);
+    if (ptr == NULL)
+        return (malloc(new_size));
+    if (new_size == 0 && ptr != NULL)
     {
-        len++;
-        s++;
+        free(ptr);
+        return (NULL);
     }
-    return (len);
-}
-
-/**
- * main - multiplies two positive numbers
- * @argc: number of arguments
- * @argv: array of arguments
- *
- * Return: 0 if successful, 98 if incorrect number of arguments,
- *         or 99 if either argument is not a positive number
- */
-int main(int argc, char **argv)
-{
-    int len1, len2, i, j, n1, n2, res_len, carry, dig1, dig2, *res;
-    char *s1, *s2;
-
-    if (argc != 3)
-    {
-        printf("Error\n");
-        return (98);
-    }
-    s1 = argv[1], s2 = argv[2];
-    if (!_isdigit(s1) || !_isdigit(s2))
-    {
-        printf("Error\n");
-        return (98);
-    }
-    len1 = _strlen(s1), len2 = _strlen(s2);
-    res_len = len1 + len2;
-    res = calloc(res_len, sizeof(int));
-    if (!res)
-        return (1);
-    for (i = len1 - 1; i >= 0; i--)
-    {
-        carry = 0;
-        dig1 = s1[i] - '0';
-        for (j = len2 - 1; j >= 0; j--)
-        {
-            dig2 = s2[j] - '0';
-            carry += res[i + j + 1] + (dig1 * dig2);
-            res[i + j + 1] = carry % 10;
-            carry /= 10;
-        }
-        if (carry)
-            res[i + j + 1] += carry;
-    }
-    i = 0;
-    while (i < res_len - 1 && !res[i])
-        i++;
-    for (; i < res_len; i++)
-        printf("%d", res[i]);
-    printf("\n");
-    free(res);
-    return (0);
+    new_ptr = malloc(new_size);
+    if (new_ptr == NULL)
+        return (NULL);
+    old_ptr = ptr;
+    for (i = 0; i < old_size && i < new_size; i++)
+        new_ptr[i] = old_ptr[i];
+    free(ptr);
+    return (new_ptr);
 }
