@@ -1,4 +1,5 @@
 #include "main.h"
+<<<<<<< HEAD
 
 /**
  * string_nconcat - concatenates two strings, but limits s2 to n bytes
@@ -7,9 +8,18 @@
  * @n: number of bytes of s2 to concatenate
  *
  * Return: pointer to new string, or NULL on failure
+=======
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+* malloc_checked - Allocates memory using malloc
+ * @b: The size of the memory to be allocated
+ * Return: A pointer to the allocated memorry 98
+>>>>>>> 5c56a3dad7cee0bbb71a3ee037263763ac1992d0
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
+<<<<<<< HEAD
 	unsigned int x, y, z;
 	char *s;
 
@@ -40,4 +50,14 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	s[x + y] = '\0';
 	return (s);
+=======
+    void *p;
+
+    p = malloc(b);
+    if (p == NULL)
+    {
+        exit(98);
+    }
+    return (p);
+>>>>>>> 5c56a3dad7cee0bbb71a3ee037263763ac1992d0
 }
