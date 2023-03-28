@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 #include "main.h"
 
 

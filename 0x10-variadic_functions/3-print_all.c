@@ -1,54 +1,61 @@
-#include <stdio.h>
 #include <stdarg.h>
+#include <stdio.h>
 #include "variadic_functions.h"
 
 /**
- * print_char - prints a character
- * @valist: argument list
+ * print_char - Prints a char
+ *
+ * @valist: list of arguments
  */
-void print_char(va_list valist)
+void print_all(va_list valist)
 {
 	printf("%c", va_arg(valist, int));
 }
+
 /**
- * print_integer - prints an integer
- * @valist: argument list
+ * print_integer - Prints an integer
+ *
+ * @valist: list of arguments
  */
-void print_integer(va_list valist)
+void print_all(va_list valist)
 {
 	printf("%d", va_arg(valist, int));
 }
+
 /**
- * print_float - prints a float
- * @valist: argument list
+ * print_float - Prints a float
+ *
+ * @valist: list of arguments
  */
-void print_float(va_list valist)
+void print_all(va_list valist)
 {
 	printf("%f", va_arg(valist, double));
 }
-/**
- * print_string - prints a string
- * @valist: argument list
- */
-void print_string(va_list valist)
-{
-	char *s = va_arg(valist, char *);
 
-	if (s == NULL)
-	{
-		printf("(nil)");
-		return;
-	}
-	printf("%s", s);
-}
 /**
- * print_all - prints anything
- * @format: list of types of arguments
+ * print_string - Prints a string
+ *
+ * @valist: list of arguments
+ */
+void print_all(va_list valist)
+{
+	char *str = va_arg(valist, char *);
+
+	if (str == NULL)
+		printf("(nil)");
+	else
+		printf("%s", str);
+}
+
+/**
+ * print_all - Prints anything
+ *
+ * @format: List of types of arguments passed to the function
  */
 void print_all(const char * const format, ...)
 {
 	va_list valist;
-	int i = 0, j = 0;
+	int i = 0, j;
 	char *separator = "";
 	print_fn print_fns[] = {
 		{'c', print_char},
@@ -70,11 +77,12 @@ void print_all(const char * const format, ...)
 				printf("%s", separator);
 				print_fns[j].print_func(valist);
 				separator = ", ";
+				break;
 			}
 			j++;
 		}
 		i++;
 	}
-	printf("\n");
 	va_end(valist);
+	printf("\n");
 }

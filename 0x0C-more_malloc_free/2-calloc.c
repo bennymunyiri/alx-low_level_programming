@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "main.h"
 /**
 * _calloc - allocates memory for an array of @nmemb elements of
@@ -23,7 +22,6 @@ void * _calloc(unsigned int nmemb, unsigned int size)
 		a[b] = 0;
 	return (a);
 }
-=======
 #include "main.h"
 #include <stdio.h>
 #include <unistd.h>
@@ -48,7 +46,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		len1++;
 	while (s2[len2] != '\0')
 		len2++;
-
 	if (n >= len2)
 		n = len2;
 	result = malloc(sizeof(char) * (len1 + n + 1));
@@ -61,4 +58,3 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	result[len1 + n] = '\0';
 	return (result);
 }
->>>>>>> 5c56a3dad7cee0bbb71a3ee037263763ac1992d0
